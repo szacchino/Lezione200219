@@ -1,0 +1,2284 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <style>
+      /*!
+ * reveal.js
+ * http://revealjs.com
+ * MIT licensed
+ *
+ * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
+ */
+/*********************************************
+ * RESET STYLES
+ *********************************************/
+html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal iframe,
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
+.reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
+.reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
+.reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
+.reveal b, .reveal u, .reveal center,
+.reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
+.reveal fieldset, .reveal form, .reveal label, .reveal legend,
+.reveal table, .reveal caption, .reveal tbody, .reveal tfoot, .reveal thead, .reveal tr, .reveal th, .reveal td,
+.reveal article, .reveal aside, .reveal canvas, .reveal details, .reveal embed,
+.reveal figure, .reveal figcaption, .reveal footer, .reveal header, .reveal hgroup,
+.reveal menu, .reveal nav, .reveal output, .reveal ruby, .reveal section, .reveal summary,
+.reveal time, .reveal mark, .reveal audio, .reveal video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /* font: inherit; */
+  vertical-align: baseline; }
+
+.reveal article, .reveal aside, .reveal details, .reveal figcaption, .reveal figure,
+.reveal footer, .reveal header, .reveal hgroup, .reveal menu, .reveal nav, .reveal section {
+  display: block; }
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  position: relative;
+  line-height: 1;
+  background-color: #fff;
+  color: #000; }
+
+/*********************************************
+ * VIEW FRAGMENTS
+ *********************************************/
+.reveal .slides section .fragment {
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease; }
+  .reveal .slides section .fragment.visible {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.grow {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.grow.visible {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+
+.reveal .slides section .fragment.shrink {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.shrink.visible {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7); }
+
+.reveal .slides section .fragment.zoom-in {
+  -webkit-transform: scale(0.1);
+          transform: scale(0.1); }
+  .reveal .slides section .fragment.zoom-in.visible {
+    -webkit-transform: none;
+            transform: none; }
+
+.reveal .slides section .fragment.fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.fade-out.visible {
+    opacity: 0;
+    visibility: hidden; }
+
+.reveal .slides section .fragment.semi-fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.semi-fade-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.strike {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.strike.visible {
+    text-decoration: line-through; }
+
+.reveal .slides section .fragment.fade-up {
+  -webkit-transform: translate(0, 20%);
+          transform: translate(0, 20%); }
+  .reveal .slides section .fragment.fade-up.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-down {
+  -webkit-transform: translate(0, -20%);
+          transform: translate(0, -20%); }
+  .reveal .slides section .fragment.fade-down.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-right {
+  -webkit-transform: translate(-20%, 0);
+          transform: translate(-20%, 0); }
+  .reveal .slides section .fragment.fade-right.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-left {
+  -webkit-transform: translate(20%, 0);
+          transform: translate(20%, 0); }
+  .reveal .slides section .fragment.fade-left.visible {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+.reveal .slides section .fragment.fade-in-then-out,
+.reveal .slides section .fragment.current-visible {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-out.current-fragment,
+  .reveal .slides section .fragment.current-visible.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.fade-in-then-semi-out {
+  opacity: 0;
+  visibility: hidden; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.visible {
+    opacity: 0.5;
+    visibility: inherit; }
+  .reveal .slides section .fragment.fade-in-then-semi-out.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red,
+.reveal .slides section .fragment.highlight-current-red,
+.reveal .slides section .fragment.highlight-green,
+.reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-blue,
+.reveal .slides section .fragment.highlight-current-blue {
+  opacity: 1;
+  visibility: inherit; }
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-green.visible {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-blue.visible {
+  color: #1b91ff; }
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #ff2c2d; }
+
+.reveal .slides section .fragment.highlight-current-green.current-fragment {
+  color: #17ff2e; }
+
+.reveal .slides section .fragment.highlight-current-blue.current-fragment {
+  color: #1b91ff; }
+
+/*********************************************
+ * DEFAULT ELEMENT STYLES
+ *********************************************/
+/* Fixes issue in Chrome where italic fonts did not appear when printing to PDF */
+.reveal:after {
+  content: '';
+  font-style: italic; }
+
+.reveal iframe {
+  z-index: 1; }
+
+/** Prevents layering issues in certain browser/transition combinations */
+.reveal a {
+  position: relative; }
+
+.reveal .stretch {
+  max-width: none;
+  max-height: none; }
+
+.reveal pre.stretch code {
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box; }
+
+/*********************************************
+ * CONTROLS
+ *********************************************/
+@-webkit-keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+@keyframes bounce-right {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
+  20% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+  30% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px); } }
+
+@-webkit-keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+@keyframes bounce-down {
+  0%, 10%, 25%, 40%, 50% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  20% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+  30% {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); } }
+
+.reveal .controls {
+  display: none;
+  position: absolute;
+  top: auto;
+  bottom: 12px;
+  right: 12px;
+  left: auto;
+  z-index: 1;
+  color: #000;
+  pointer-events: none;
+  font-size: 10px; }
+  .reveal .controls button {
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: currentColor;
+    -webkit-transform: scale(0.9999);
+            transform: scale(0.9999);
+    transition: color 0.2s ease, opacity 0.2s ease, -webkit-transform 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+    pointer-events: auto;
+    font-size: inherit;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent; }
+  .reveal .controls .controls-arrow:before,
+  .reveal .controls .controls-arrow:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.6em;
+    height: 0.5em;
+    border-radius: 0.25em;
+    background-color: currentColor;
+    transition: all 0.15s ease, background-color 0.8s ease;
+    -webkit-transform-origin: 0.2em 50%;
+            transform-origin: 0.2em 50%;
+    will-change: transform; }
+  .reveal .controls .controls-arrow {
+    position: relative;
+    width: 3.6em;
+    height: 3.6em; }
+    .reveal .controls .controls-arrow:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+    .reveal .controls .controls-arrow:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+    .reveal .controls .controls-arrow:hover:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(40deg); }
+    .reveal .controls .controls-arrow:hover:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-40deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-40deg); }
+    .reveal .controls .controls-arrow:active:before {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(36deg); }
+    .reveal .controls .controls-arrow:active:after {
+      -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-36deg);
+              transform: translateX(0.5em) translateY(1.55em) rotate(-36deg); }
+  .reveal .controls .navigate-left {
+    right: 6.4em;
+    bottom: 3.2em;
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px); }
+  .reveal .controls .navigate-right {
+    right: 0;
+    bottom: 3.2em;
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px); }
+    .reveal .controls .navigate-right .controls-arrow {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); }
+    .reveal .controls .navigate-right.highlight {
+      -webkit-animation: bounce-right 2s 50 both ease-out;
+              animation: bounce-right 2s 50 both ease-out; }
+  .reveal .controls .navigate-up {
+    right: 3.2em;
+    bottom: 6.4em;
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px); }
+    .reveal .controls .navigate-up .controls-arrow {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg); }
+  .reveal .controls .navigate-down {
+    right: 3.2em;
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px); }
+    .reveal .controls .navigate-down .controls-arrow {
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
+    .reveal .controls .navigate-down.highlight {
+      -webkit-animation: bounce-down 2s 50 both ease-out;
+              animation: bounce-down 2s 50 both ease-out; }
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled {
+    opacity: 0.3; }
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-left.enabled:hover,
+    .reveal .controls[data-controls-back-arrows="faded"] .navigate-up.enabled:hover {
+      opacity: 1; }
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-left.enabled,
+  .reveal .controls[data-controls-back-arrows="hidden"] .navigate-up.enabled {
+    opacity: 0;
+    visibility: hidden; }
+  .reveal .controls .enabled {
+    visibility: visible;
+    opacity: 0.9;
+    cursor: pointer;
+    -webkit-transform: none;
+            transform: none; }
+  .reveal .controls .enabled.fragmented {
+    opacity: 0.5; }
+  .reveal .controls .enabled:hover,
+  .reveal .controls .enabled.fragmented:hover {
+    opacity: 1; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-left {
+  bottom: 1.4em;
+  right: 5.5em; }
+
+.reveal:not(.has-vertical-slides) .controls .navigate-right {
+  bottom: 1.4em;
+  right: 0.5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-up {
+  right: 1.4em;
+  bottom: 5em; }
+
+.reveal:not(.has-horizontal-slides) .controls .navigate-down {
+  right: 1.4em;
+  bottom: 0.5em; }
+
+.reveal.has-dark-background .controls {
+  color: #fff; }
+
+.reveal.has-light-background .controls {
+  color: #000; }
+
+.reveal.no-hover .controls .controls-arrow:hover:before,
+.reveal.no-hover .controls .controls-arrow:active:before {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(45deg); }
+
+.reveal.no-hover .controls .controls-arrow:hover:after,
+.reveal.no-hover .controls .controls-arrow:active:after {
+  -webkit-transform: translateX(0.5em) translateY(1.55em) rotate(-45deg);
+          transform: translateX(0.5em) translateY(1.55em) rotate(-45deg); }
+
+@media screen and (min-width: 500px) {
+  .reveal .controls[data-controls-layout="edges"] {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left,
+  .reveal .controls[data-controls-layout="edges"] .navigate-right,
+  .reveal .controls[data-controls-layout="edges"] .navigate-up,
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: auto;
+    right: auto; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-left {
+    top: 50%;
+    left: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-right {
+    top: 50%;
+    right: 8px;
+    margin-top: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-up {
+    top: 8px;
+    left: 50%;
+    margin-left: -1.8em; }
+  .reveal .controls[data-controls-layout="edges"] .navigate-down {
+    bottom: 8px;
+    left: 50%;
+    margin-left: -1.8em; } }
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  position: absolute;
+  display: none;
+  height: 3px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.reveal .progress:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 10px;
+  width: 100%;
+  top: -10px; }
+
+.reveal .progress span {
+  display: block;
+  height: 100%;
+  width: 0px;
+  background-color: currentColor;
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  right: 8px;
+  bottom: 8px;
+  z-index: 31;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px; }
+
+.reveal .slide-number a {
+  color: currentColor; }
+
+.reveal .slide-number-delimiter {
+  margin: 0 3px; }
+
+/*********************************************
+ * SLIDES
+ *********************************************/
+.reveal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none; }
+
+@media only screen and (orientation: landscape) {
+  .reveal.ua-iphone {
+    position: fixed; } }
+
+.reveal .slides {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1;
+  text-align: center;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  -webkit-perspective-origin: 50% 40%;
+          perspective-origin: 50% 40%; }
+
+.reveal .slides > section {
+  -ms-perspective: 600px; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding: 20px 0px;
+  pointer-events: auto;
+  z-index: 10;
+  -webkit-transform-style: flat;
+          transform-style: flat;
+  transition: -webkit-transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform-origin 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), transform 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), visibility 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985), opacity 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] .slides section {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] .slides section {
+  transition-duration: 1200ms; }
+
+/* Slide-specific transition speed overrides */
+.reveal .slides section[data-transition-speed="fast"] {
+  transition-duration: 400ms; }
+
+.reveal .slides section[data-transition-speed="slow"] {
+  transition-duration: 1200ms; }
+
+.reveal .slides > section.stack {
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none; }
+
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
+  display: block;
+  z-index: 11;
+  opacity: 1; }
+
+.reveal .slides > section:empty,
+.reveal .slides > section > section:empty,
+.reveal .slides > section[data-background-interactive],
+.reveal .slides > section > section[data-background-interactive] {
+  pointer-events: none; }
+
+.reveal.center,
+.reveal.center .slides,
+.reveal.center .slides section {
+  min-height: 0 !important; }
+
+/* Don't allow interaction with invisible slides */
+.reveal .slides > section.future,
+.reveal .slides > section > section.future,
+.reveal .slides > section.past,
+.reveal .slides > section > section.past {
+  pointer-events: none; }
+
+.reveal.overview .slides > section,
+.reveal.overview .slides > section > section {
+  pointer-events: auto; }
+
+.reveal .slides > section.past,
+.reveal .slides > section.future,
+.reveal .slides > section > section.past,
+.reveal .slides > section > section.future {
+  opacity: 0; }
+
+/*********************************************
+ * Mixins for readability of transitions
+ *********************************************/
+/*********************************************
+ * SLIDE TRANSITION
+ * Aliased 'linear' for backwards compatibility
+ *********************************************/
+.reveal.slide section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=slide].past,
+.reveal .slides > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=slide].future,
+.reveal .slides > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=slide].past,
+.reveal .slides > section > section[data-transition~=slide-out].past,
+.reveal.slide .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=slide].future,
+.reveal .slides > section > section[data-transition~=slide-in].future,
+.reveal.slide .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+.reveal.linear section {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .slides > section[data-transition=linear].past,
+.reveal .slides > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section:not([data-transition]).past {
+  -webkit-transform: translate(-150%, 0);
+          transform: translate(-150%, 0); }
+
+.reveal .slides > section[data-transition=linear].future,
+.reveal .slides > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section:not([data-transition]).future {
+  -webkit-transform: translate(150%, 0);
+          transform: translate(150%, 0); }
+
+.reveal .slides > section > section[data-transition=linear].past,
+.reveal .slides > section > section[data-transition~=linear-out].past,
+.reveal.linear .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=linear].future,
+.reveal .slides > section > section[data-transition~=linear-in].future,
+.reveal.linear .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CONVEX TRANSITION
+ * Aliased 'default' for backwards compatibility
+ *********************************************/
+.reveal .slides section[data-transition=default].stack,
+.reveal.default .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=default].past,
+.reveal .slides > section[data-transition~=default-out].past,
+.reveal.default .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=default].future,
+.reveal .slides > section[data-transition~=default-in].future,
+.reveal.default .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=default].past,
+.reveal .slides > section > section[data-transition~=default-out].past,
+.reveal.default .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=default].future,
+.reveal .slides > section > section[data-transition~=default-in].future,
+.reveal.default .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+.reveal .slides section[data-transition=convex].stack,
+.reveal.convex .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=convex].past,
+.reveal .slides > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=convex].future,
+.reveal .slides > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=convex].past,
+.reveal .slides > section > section[data-transition~=convex-out].past,
+.reveal.convex .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0);
+          transform: translate3d(0, -300px, 0) rotateX(70deg) translate3d(0, -300px, 0); }
+
+.reveal .slides > section > section[data-transition=convex].future,
+.reveal .slides > section > section[data-transition~=convex-in].future,
+.reveal.convex .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0);
+          transform: translate3d(0, 300px, 0) rotateX(-70deg) translate3d(0, 300px, 0); }
+
+/*********************************************
+ * CONCAVE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=concave].stack,
+.reveal.concave .slides section.stack {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal .slides > section[data-transition=concave].past,
+.reveal .slides > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section:not([data-transition]).past {
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal .slides > section[data-transition=concave].future,
+.reveal .slides > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section:not([data-transition]).future {
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal .slides > section > section[data-transition=concave].past,
+.reveal .slides > section > section[data-transition~=concave-out].past,
+.reveal.concave .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0);
+          transform: translate3d(0, -80%, 0) rotateX(-70deg) translate3d(0, -80%, 0); }
+
+.reveal .slides > section > section[data-transition=concave].future,
+.reveal .slides > section > section[data-transition~=concave-in].future,
+.reveal.concave .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0);
+          transform: translate3d(0, 80%, 0) rotateX(70deg) translate3d(0, 80%, 0); }
+
+/*********************************************
+ * ZOOM TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=zoom],
+.reveal.zoom .slides section:not([data-transition]) {
+  transition-timing-function: ease; }
+
+.reveal .slides > section[data-transition=zoom].past,
+.reveal .slides > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section:not([data-transition]).past {
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal .slides > section[data-transition=zoom].future,
+.reveal .slides > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section:not([data-transition]).future {
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .slides > section > section[data-transition=zoom].past,
+.reveal .slides > section > section[data-transition~=zoom-out].past,
+.reveal.zoom .slides > section > section:not([data-transition]).past {
+  -webkit-transform: translate(0, -150%);
+          transform: translate(0, -150%); }
+
+.reveal .slides > section > section[data-transition=zoom].future,
+.reveal .slides > section > section[data-transition~=zoom-in].future,
+.reveal.zoom .slides > section > section:not([data-transition]).future {
+  -webkit-transform: translate(0, 150%);
+          transform: translate(0, 150%); }
+
+/*********************************************
+ * CUBE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.cube .slides {
+  -webkit-perspective: 1300px;
+          perspective: 1300px; }
+
+.reveal.cube .slides section {
+  padding: 30px;
+  min-height: 700px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.center.cube .slides section {
+  min-height: 0; }
+
+.reveal.cube .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.cube .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg);
+          transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.cube .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.cube .slides > section.past {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg); }
+
+.reveal.cube .slides > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg);
+          transform: translate3d(100%, 0, 0) rotateY(90deg); }
+
+.reveal.cube .slides > section > section.past {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg);
+          transform: translate3d(0, -100%, 0) rotateX(90deg); }
+
+.reveal.cube .slides > section > section.future {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg); }
+
+/*********************************************
+ * PAGE TRANSITION
+ *
+ * WARNING:
+ * this is deprecated and will be removed in a
+ * future version.
+ *********************************************/
+.reveal.page .slides {
+  -webkit-perspective-origin: 0% 50%;
+          perspective-origin: 0% 50%;
+  -webkit-perspective: 3000px;
+          perspective: 3000px; }
+
+.reveal.page .slides section {
+  padding: 30px;
+  min-height: 700px;
+  box-sizing: border-box;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+.reveal.page .slides section.past {
+  z-index: 12; }
+
+.reveal.page .slides section:not(.stack):before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateZ(-20px);
+          transform: translateZ(-20px); }
+
+.reveal.page .slides section:not(.stack):after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 90%;
+  height: 30px;
+  left: 5%;
+  bottom: 0;
+  background: none;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateZ(-90px) rotateX(65deg); }
+
+.reveal.page .slides > section.stack {
+  padding: 0;
+  background: none; }
+
+.reveal.page .slides > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(-40%, 0, 0) rotateY(-80deg);
+          transform: translate3d(-40%, 0, 0) rotateY(-80deg); }
+
+.reveal.page .slides > section.future {
+  -webkit-transform-origin: 100% 0%;
+          transform-origin: 100% 0%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+.reveal.page .slides > section > section.past {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate3d(0, -40%, 0) rotateX(80deg);
+          transform: translate3d(0, -40%, 0) rotateX(80deg); }
+
+.reveal.page .slides > section > section.future {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0); }
+
+/*********************************************
+ * FADE TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=fade],
+.reveal.fade .slides section:not([data-transition]),
+.reveal.fade .slides > section > section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: opacity 0.5s; }
+
+.reveal.fade.overview .slides section,
+.reveal.fade.overview .slides > section > section {
+  transition: none; }
+
+/*********************************************
+ * NO TRANSITION
+ *********************************************/
+.reveal .slides section[data-transition=none],
+.reveal.none .slides section:not([data-transition]) {
+  -webkit-transform: none;
+          transform: none;
+  transition: none; }
+
+/*********************************************
+ * PAUSED MODE
+ *********************************************/
+.reveal .pause-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 100;
+  transition: all 1s ease; }
+
+.reveal .pause-overlay .resume-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #ccc;
+  border-radius: 2px;
+  padding: 6px 14px;
+  border: 2px solid #ccc;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer; }
+  .reveal .pause-overlay .resume-button:hover {
+    color: #fff;
+    border-color: #fff; }
+
+.reveal.paused .pause-overlay {
+  visibility: visible;
+  opacity: 1; }
+
+/*********************************************
+ * FALLBACK
+ *********************************************/
+.no-transforms {
+  overflow-y: auto; }
+
+.no-transforms .reveal .slides {
+  position: relative;
+  width: 80%;
+  height: auto !important;
+  top: 0;
+  left: 50%;
+  margin: 0;
+  text-align: center; }
+
+.no-transforms .reveal .controls,
+.no-transforms .reveal .progress {
+  display: none !important; }
+
+.no-transforms .reveal .slides section {
+  display: block !important;
+  opacity: 1 !important;
+  position: relative !important;
+  height: auto;
+  min-height: 0;
+  top: 0;
+  left: -50%;
+  margin: 70px 0;
+  -webkit-transform: none;
+          transform: none; }
+
+.no-transforms .reveal .slides section section {
+  left: 0; }
+
+.reveal .no-transition,
+.reveal .no-transition * {
+  transition: none !important; }
+
+/*********************************************
+ * PER-SLIDE BACKGROUNDS
+ *********************************************/
+.reveal .backgrounds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -webkit-perspective: 600px;
+          perspective: 600px; }
+
+.reveal .slide-background {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: transparent;
+  transition: all 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+.reveal .slide-background-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.reveal .slide-background.stack {
+  display: block; }
+
+.reveal .slide-background.present {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2; }
+
+.print-pdf .reveal .slide-background {
+  opacity: 1 !important;
+  visibility: visible !important; }
+
+/* Video backgrounds */
+.reveal .slide-background video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.reveal .slide-background[data-background-size="contain"] video {
+  -o-object-fit: contain;
+     object-fit: contain; }
+
+/* Immediate transition style */
+.reveal[data-background-transition=none] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=none] {
+  transition: none; }
+
+/* Slide */
+.reveal[data-background-transition=slide] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=slide] {
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=slide] {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%); }
+
+.reveal[data-background-transition=slide] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=slide] {
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%); }
+
+/* Convex */
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(-90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=convex] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=convex] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(-90deg) translate3d(0, 100%, 0); }
+
+/* Concave */
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0) rotateY(90deg) translate3d(-100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0) rotateY(-90deg) translate3d(100%, 0, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0) rotateX(-90deg) translate3d(0, -100%, 0); }
+
+.reveal[data-background-transition=concave] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=concave] {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0) rotateX(90deg) translate3d(0, 100%, 0); }
+
+/* Zoom */
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background,
+.reveal > .backgrounds .slide-background[data-background-transition=zoom] {
+  transition-timing-function: ease; }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.past,
+.reveal > .backgrounds .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background.future,
+.reveal > .backgrounds .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.past,
+.reveal > .backgrounds .slide-background > .slide-background.past[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(16);
+          transform: scale(16); }
+
+.reveal[data-background-transition=zoom] > .backgrounds .slide-background > .slide-background.future,
+.reveal > .backgrounds .slide-background > .slide-background.future[data-background-transition=zoom] {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+/* Global transition speed settings */
+.reveal[data-transition-speed="fast"] > .backgrounds .slide-background {
+  transition-duration: 400ms; }
+
+.reveal[data-transition-speed="slow"] > .backgrounds .slide-background {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * OVERVIEW
+ *********************************************/
+.reveal.overview {
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%;
+  -webkit-perspective: 700px;
+          perspective: 700px; }
+  .reveal.overview .slides {
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .slides section {
+    height: 100%;
+    top: 0 !important;
+    opacity: 1 !important;
+    overflow: hidden;
+    visibility: visible !important;
+    cursor: pointer;
+    box-sizing: border-box; }
+  .reveal.overview .slides section:hover,
+  .reveal.overview .slides section.present {
+    outline: 10px solid rgba(150, 150, 150, 0.4);
+    outline-offset: 10px; }
+  .reveal.overview .slides section .fragment {
+    opacity: 1;
+    transition: none; }
+  .reveal.overview .slides section:after,
+  .reveal.overview .slides section:before {
+    display: none !important; }
+  .reveal.overview .slides > section.stack {
+    padding: 0;
+    top: 0 !important;
+    background: none;
+    outline: none;
+    overflow: visible; }
+  .reveal.overview .backgrounds {
+    -webkit-perspective: inherit;
+            perspective: inherit;
+    -moz-transform-style: preserve-3d; }
+  .reveal.overview .backgrounds .slide-background {
+    opacity: 1;
+    visibility: visible;
+    outline: 10px solid rgba(150, 150, 150, 0.1);
+    outline-offset: 10px; }
+  .reveal.overview .backgrounds .slide-background.stack {
+    overflow: visible; }
+
+.reveal.overview .slides section,
+.reveal.overview-deactivating .slides section {
+  transition: none; }
+
+.reveal.overview .backgrounds .slide-background,
+.reveal.overview-deactivating .backgrounds .slide-background {
+  transition: none; }
+
+/*********************************************
+ * RTL SUPPORT
+ *********************************************/
+.reveal.rtl .slides,
+.reveal.rtl .slides h1,
+.reveal.rtl .slides h2,
+.reveal.rtl .slides h3,
+.reveal.rtl .slides h4,
+.reveal.rtl .slides h5,
+.reveal.rtl .slides h6 {
+  direction: rtl;
+  font-family: sans-serif; }
+
+.reveal.rtl pre,
+.reveal.rtl code {
+  direction: ltr; }
+
+.reveal.rtl ol,
+.reveal.rtl ul {
+  text-align: right; }
+
+.reveal.rtl .progress span {
+  float: right; }
+
+/*********************************************
+ * PARALLAX BACKGROUND
+ *********************************************/
+.reveal.has-parallax-background .backgrounds {
+  transition: all 0.8s ease; }
+
+/* Global transition speed settings */
+.reveal.has-parallax-background[data-transition-speed="fast"] .backgrounds {
+  transition-duration: 400ms; }
+
+.reveal.has-parallax-background[data-transition-speed="slow"] .backgrounds {
+  transition-duration: 1200ms; }
+
+/*********************************************
+ * LINK PREVIEW OVERLAY
+ *********************************************/
+.reveal .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.visible {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay .spinner {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  z-index: 10;
+  background-image: url(data:image/gif;base64,R0lGODlhIAAgAPMAAJmZmf%2F%2F%2F6%2Bvr8nJybW1tcDAwOjo6Nvb26ioqKOjo7Ozs%2FLy8vz8%2FAAAAAAAAAAAACH%2FC05FVFNDQVBFMi4wAwEAAAAh%2FhpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh%2BQQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ%2FV%2FnmOM82XiHRLYKhKP1oZmADdEAAAh%2BQQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY%2FCZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB%2BA4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6%2BHo7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq%2BB6QDtuetcaBPnW6%2BO7wDHpIiK9SaVK5GgV543tzjgGcghAgAh%2BQQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK%2B%2BG%2Bw48edZPK%2BM6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE%2BG%2BcD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm%2BFNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk%2BaV%2BoJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0%2FVNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc%2BXiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30%2FiI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE%2FjiuL04RGEBgwWhShRgQExHBAAh%2BQQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR%2BipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq%2BE71SRQeyqUToLA7VxF0JDyIQh%2FMVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY%2BYip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd%2BMFCN6HAAIKgNggY0KtEBAAh%2BQQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1%2BvsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d%2BjYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg%2BygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0%2Bbm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h%2BKr0SJ8MFihpNbx%2B4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX%2BBP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA%3D%3D);
+  visibility: visible;
+  opacity: 0.6;
+  transition: all 0.3s ease; }
+
+.reveal .overlay header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 2;
+  border-bottom: 1px solid #222; }
+
+.reveal .overlay header a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 10px;
+  float: right;
+  opacity: 0.6;
+  box-sizing: border-box; }
+
+.reveal .overlay header a:hover {
+  opacity: 1; }
+
+.reveal .overlay header a .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-position: 50% 50%;
+  background-size: 100%;
+  background-repeat: no-repeat; }
+
+.reveal .overlay header a.close .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYR8WX4VHDMAxG6wnoJrABZQPYBCaBTWAD2g1gE5gg6OOsXuxIlr40d81dfrSJ9V4c2VLK7spHuTJ/5wpM07QXuXc5X0opX2tEJcadjHuV80li/FgxTIEK/5QBCICBD6xEhSMGHgQPgBgLiYVAB1dpSqKDawxTohFw4JSEA3clzgIBPCURwE2JucBR7rhPJJv5OpJwDX+SfDjgx1wACQeJG1aChP9K/IMmdZ8DtESV1WyP3Bt4MwM6sj4NMxMYiqUWHQu4KYA/SYkIjOsm3BXYWMKFDwU2khjCQ4ELJUJ4SmClRArOCmSXGuKma0fYD5CbzHxFpCSGAhfAVSSUGDUk2BWZaff2g6GE15BsBQ9nwmpIGDiyHQddwNTMKkbZaf9fajXQca1EX44puJZUsnY0ObGmITE3GVLCbEhQUjGVt146j6oasWN+49Vph2w1pZ5EansNZqKBm1txbU57iRRcZ86RWMDdWtBJUHBHwoQPi1GV+JCbntmvok7iTX4/Up9mgyTc/FJYDTcndgH/AA5A/CHsyEkVAAAAAElFTkSuQmCC); }
+
+.reveal .overlay header a.external .icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYR+2WSQoAIQwEzf8f7XiOMkUQxUPlGkM3hVmiQfQR9GYnH1SsAQlI4DiBqkCMoNb9y2e90IAEJPAcgdznU9+engMaeJ7Azh5Y1U67gAho4DqBqmB1buAf0MB1AlVBek83ZPkmJMGc1wAR+AAqod/B97TRpQAAAABJRU5ErkJggg==); }
+
+.reveal .overlay .viewport {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 40px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+.reveal .overlay.overlay-preview .viewport iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease; }
+
+.reveal .overlay.overlay-preview.loaded .viewport iframe {
+  opacity: 1;
+  visibility: visible; }
+
+.reveal .overlay.overlay-preview.loaded .viewport-inner {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-preview .x-frame-error {
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s; }
+
+.reveal .overlay.overlay-preview.loaded .x-frame-error {
+  opacity: 1; }
+
+.reveal .overlay.overlay-preview.loaded .spinner {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(0.2);
+          transform: scale(0.2); }
+
+.reveal .overlay.overlay-help .viewport {
+  overflow: auto;
+  color: #fff; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner {
+  width: 600px;
+  margin: auto;
+  padding: 20px 20px 80px 20px;
+  text-align: center;
+  letter-spacing: normal; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner .title {
+  font-size: 20px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table {
+  border: 1px solid #fff;
+  border-collapse: collapse;
+  font-size: 16px; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th,
+.reveal .overlay.overlay-help .viewport .viewport-inner table td {
+  width: 200px;
+  padding: 14px;
+  border: 1px solid #fff;
+  vertical-align: middle; }
+
+.reveal .overlay.overlay-help .viewport .viewport-inner table th {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+/*********************************************
+ * PLAYBACK COMPONENT
+ *********************************************/
+.reveal .playback {
+  position: absolute;
+  left: 15px;
+  bottom: 20px;
+  z-index: 30;
+  cursor: pointer;
+  transition: all 400ms ease;
+  -webkit-tap-highlight-color: transparent; }
+
+.reveal.overview .playback {
+  opacity: 0;
+  visibility: hidden; }
+
+/*********************************************
+ * ROLLING LINKS
+ *********************************************/
+.reveal .roll {
+  display: inline-block;
+  line-height: 1.2;
+  overflow: hidden;
+  vertical-align: top;
+  -webkit-perspective: 400px;
+          perspective: 400px;
+  -webkit-perspective-origin: 50% 50%;
+          perspective-origin: 50% 50%; }
+
+.reveal .roll:hover {
+  background: none;
+  text-shadow: none; }
+
+.reveal .roll span {
+  display: block;
+  position: relative;
+  padding: 0 2px;
+  pointer-events: none;
+  transition: all 400ms ease;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.reveal .roll:hover span {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0px, 0px, -45px) rotateX(90deg);
+          transform: translate3d(0px, 0px, -45px) rotateX(90deg); }
+
+.reveal .roll span:after {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0 2px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: 50% 0%;
+          transform-origin: 50% 0%;
+  -webkit-transform: translate3d(0px, 110%, 0px) rotateX(-90deg);
+          transform: translate3d(0px, 110%, 0px) rotateX(-90deg); }
+
+/*********************************************
+ * SPEAKER NOTES
+ *********************************************/
+.reveal aside.notes {
+  display: none; }
+
+.reveal .speaker-notes {
+  display: none;
+  position: absolute;
+  width: 25vw;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  padding: 14px 18px 14px 18px;
+  z-index: 1;
+  font-size: 18px;
+  line-height: 1.4;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #222;
+  background-color: #f5f5f5;
+  overflow: auto;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: Helvetica, sans-serif;
+  -webkit-overflow-scrolling: touch; }
+  .reveal .speaker-notes .notes-placeholder {
+    color: #ccc;
+    font-style: italic; }
+  .reveal .speaker-notes:focus {
+    outline: none; }
+  .reveal .speaker-notes:before {
+    content: 'Speaker notes';
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.5; }
+
+.reveal.show-notes {
+  max-width: 75vw;
+  overflow: visible; }
+
+.reveal.show-notes .speaker-notes {
+  display: block; }
+
+@media screen and (min-width: 1600px) {
+  .reveal .speaker-notes {
+    font-size: 20px; } }
+
+@media screen and (max-width: 1024px) {
+  .reveal.show-notes {
+    border-left: 0;
+    max-width: none;
+    max-height: 70%;
+    overflow: visible; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 42.8571428571%; } }
+
+@media screen and (max-width: 600px) {
+  .reveal.show-notes {
+    max-height: 60%; }
+  .reveal.show-notes .speaker-notes {
+    top: 100%;
+    height: 66.6666666667%; }
+  .reveal .speaker-notes {
+    font-size: 14px; } }
+
+/*********************************************
+ * ZOOM PLUGIN
+ *********************************************/
+.zoomed .reveal *,
+.zoomed .reveal *:before,
+.zoomed .reveal *:after {
+  -webkit-backface-visibility: visible !important;
+          backface-visibility: visible !important; }
+
+.zoomed .reveal .progress,
+.zoomed .reveal .controls {
+  opacity: 0; }
+
+.zoomed .reveal .roll span {
+  background: none; }
+
+.zoomed .reveal .roll span:after {
+  visibility: hidden; }
+
+      
+      </style>
+      <link rel="stylesheet" href="file:////Users/zac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/reveal/css/theme/simple.css">
+      <link rel="stylesheet" href="file:////Users/zac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      <link rel="stylesheet" href="file:////Users/zac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/font-awesome/css/font-awesome.min.css">
+
+      
+        <script src="file:////Users/zac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/reveal/lib/js/head.min.js"></script>
+        <script src="file:////Users/zac/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.2/node_modules/@shd101wyy/mume/dependencies/reveal/js/reveal.js"></script>
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+
+      </style>
+    </head>
+    <body for="html-export" data-presentation-mode>
+      <div class="mume markdown-preview  " data-presentation-mode>
+      
+    <div style="display:none;"><style src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></style>
+<style>
+.question {
+    /* border: 2px solid #999999 !important; */
+    border-radius: 30px;
+    background-color: #e9e9ff;
+    display: flex;
+    box-shadow: 0px 10px 10px grey;
+    margin: 30px !important;
+}
+.question .icon {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 80px;
+    color: #57578c;
+}
+.question .text {
+    display: flex;
+    flex-grow: 9;
+    padding: 30px;
+    align-items: center;
+    color: #57578c;
+    flex-direction: column;
+}
+</style>
+</div>
+    <div class="reveal">
+      <div class="slides">
+        <section lineno="34" class="slide " data-line="34" data-h="0" data-v="0">
+<h1 class="mume-header" id="corso-java-base">Corso Java Base</h1>
+
+<h2 class="mume-header" id="ing-sandro-zacchino">Ing. Sandro Zacchino</h2>
+
+<p>email <a href="mailto:sandro.zacchino@gmail.com">sandro.zacchino@gmail.com</a><br>
+github <a href="https://github.com/szacchino/Lezione200219">https://github.com/szacchino/Lezione200219</a></p>
+</section><section lineno="41" class="slide " data-line="41" data-h="1" data-v="0">
+<h2 class="mume-header" id="problema">Problema</h2>
+
+<ul>
+<li>Progettare le classi java necessarie ad elaborare la media degli esami sostenuti da un generico studente</li>
+<li>In questo problema riusciamo ad identificare due chiare entit&#xE0;: lo Studente e l&apos;Esame</li>
+<li>In uno scenario reale i dati relativi ad uno studente potrebbero provenire da un database, da un file o da altre fonti</li>
+</ul>
+</section><section lineno="47" class="slide " data-line="47" data-h="2" data-v="0">
+<h2 class="mume-header" id="progettazione">Progettazione</h2>
+
+<ul>
+<li>Il nostro compito &#xE8; quello di mappare le entit&#xE0; che hanno una definizione chiara in classi</li>
+<li>Le nostre classi saranno contenute in un package</li>
+</ul>
+</section><section lineno="53" class="slide " data-line="53" data-h="3" data-v="0">
+<h2 class="mume-header" id="definizione-di-package">Definizione di package</h2>
+
+<ul>
+<li>Una classe ha un nome (solitamente con iniziale maiuscola) ed &#xE8; definita all&apos;interno di <strong>package</strong>.</li>
+<li>Un package &#xE8; un contenitore con un nome che serve a distinguere classi che hanno lo stesso nome. Ad esempio</li>
+</ul>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>universita</span><span class="token punctuation">;</span>
+</pre><p>e</p>
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>scuolasuperiore</span><span class="token punctuation">;</span>
+</pre><p>sono due package che potrebbero contenere una classe Studente ma le due classi potrebbero avere scopi e funzionamenti differenti</p>
+<ul>
+<li>All&apos;interno di un package possono esserci pi&#xF9; classi: per ciascuna possiamo indicare quale &#xE8; visibile e quale no alle altri classi del contenitore.</li>
+</ul>
+</section><section lineno="68" class="slide " data-line="68" data-h="4" data-v="0">
+<h2 class="mume-header" id="definizione-di-classe">Definizione di classe</h2>
+
+<ul>
+<li>Una classe &#xE8; la definizione di un tipo di dato complesso, dotato di uno stato interno e di metodi in grado di modificarlo</li>
+<li>lo <strong>stato</strong> &#xE8; definito da attributi i quali possono essere di tipo primitivo (int, double, float, ecc) oppure di tipo complesso (altre classi)</li>
+<li>lo stato pu&#xF2; comprendere tutte le classi <em>visibili</em> o sulle quali si ha accesso</li>
+<li>esistono le keyword di java che permettono di definire la visibilit&#xE0; di classi, attributi e metodi verso l&apos;accesso da parte di una classe esterna</li>
+</ul>
+<table>
+    <tbody><tr>
+        <th>Modificatore</th>
+        <th>Package</th>
+        <th>Eredi</th>
+        <th>Esterno</th>
+        <th>Classe</th>
+    </tr>
+    <tr>
+        <th>public</th>
+        <td>Si</td>
+        <td>Si</td>
+        <td>Si</td>
+        <td>Si</td>
+    </tr>
+    <tr>
+        <th>protected</th>
+        <td>Si</td>
+        <td>Si</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <th>private</th>
+        <td>Si</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+</tbody></table>
+</section><section lineno="107" class="slide " data-line="107" data-h="5" data-v="0">
+<h2 class="mume-header" id="tipi-di-dati">Tipi di dati</h2>
+
+<ul>
+<li>Java fornisce alcuni tipi di dati: alcuni di questi si identificano con <em>wrapper dei tipi primitivi</em></li>
+<li>Questi wrapper sono le classi corrispondenti ai tipi primitivi</li>
+<li>i tipi primitivi ad esempio sono <code>int, float, double</code></li>
+<li>i corrispondenti wrapper sono <code>Integer, Float, Double</code></li>
+<li>l&apos;uso dell&apos;iniziale minuscola o maiuscola ci aiuta a capire quando stiamo usando un tipo primitivo e quando una classe</li>
+</ul>
+</section><section lineno="117" class="slide " data-line="117" data-h="6" data-v="0">
+<h2 class="mume-header" id="diagramma-delle-classi">Diagramma delle classi</h2>
+
+<ul>
+<li>Un primo progetto potrebbe essere rappresentato dal seguente diagramma UML (class diagram)</li>
+</ul>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="852px" preserveAspectRatio="none" style="width:582px;height:852px;" version="1.1" viewBox="0 0 582 852" width="582px" zoomAndPan="magnify"><defs><filter height="300%" id="favyhvxqrnmbv" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="6.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="12.0" dy="12.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[82a3fe71a7b6711430cf049b87156659]
+cluster it.adm.calcolomedia--><polygon fill="#FFFFFF" filter="url(#favyhvxqrnmbv)" points="42,48,486,48,507,115.4648,516,115.4648,516,816,42,816,42,48" style="stroke: #000000; stroke-width: 4.5;"/><line style="stroke: #000000; stroke-width: 4.5;" x1="42" x2="507" y1="115.4648" y2="115.4648"/><text fill="#000000" font-family="sans-serif" font-size="42" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="426" x="54" y="94.6055">it.adm.calcolomedia</text><!--MD5=[81b876832e028002ede37ed04d01654b]
+class Studente--><rect fill="#FEFECE" filter="url(#favyhvxqrnmbv)" height="260.5957" id="Studente" style="stroke: #A80036; stroke-width: 4.5;" width="339" x="109.5" y="531"/><ellipse cx="196.35" cy="579" fill="#ADD1B2" rx="33" ry="33" style="stroke: #A80036; stroke-width: 3.0;"/><path d="M205.2694,595.9292 Q203.5263,596.8257 201.6088,597.2739 Q199.6913,597.7222 197.5746,597.7222 Q190.0541,597.7222 186.0946,592.7666 Q182.1352,587.811 182.1352,578.4478 Q182.1352,569.0596 186.0946,564.104 Q190.0541,559.1484 197.5746,559.1484 Q199.6913,559.1484 201.6337,559.5967 Q203.5761,560.0449 205.2694,560.9414 L205.2694,569.1094 Q203.3769,567.3662 201.5963,566.5569 Q199.8158,565.7476 197.9232,565.7476 Q193.8891,565.7476 191.8346,568.9475 Q189.7802,572.1475 189.7802,578.4478 Q189.7802,584.7231 191.8346,587.9231 Q193.8891,591.123 197.9232,591.123 Q199.8158,591.123 201.5963,590.3137 Q203.3769,589.5044 205.2694,587.7612 Z "/><text fill="#000000" font-family="sans-serif" font-size="36" lengthAdjust="spacingAndGlyphs" textLength="150" x="247.65" y="592.6055">Studente</text><line style="stroke: #A80036; stroke-width: 4.5;" x1="112.5" x2="445.5" y1="627" y2="627"/><ellipse cx="142.5" cy="660" fill="none" rx="9" ry="9" style="stroke: #038048; stroke-width: 3.0;"/><text fill="#000000" font-family="sans-serif" font-size="33" lengthAdjust="spacingAndGlyphs" textLength="195" x="169.5" y="670.9043">String nome</text><ellipse cx="142.5" cy="698.8652" fill="none" rx="9" ry="9" style="stroke: #038048; stroke-width: 3.0;"/><text fill="#000000" font-family="sans-serif" font-size="33" lengthAdjust="spacingAndGlyphs" textLength="261" x="169.5" y="709.7695">String Cognome</text><ellipse cx="142.5" cy="737.7305" fill="none" rx="9" ry="9" style="stroke: #038048; stroke-width: 3.0;"/><text fill="#000000" font-family="sans-serif" font-size="33" lengthAdjust="spacingAndGlyphs" textLength="237" x="169.5" y="748.6348">Esame esami[ ]</text><line style="stroke: #A80036; stroke-width: 4.5;" x1="112.5" x2="445.5" y1="767.5957" y2="767.5957"/><!--MD5=[b7bfee4cf697f663d0567e067620b3b9]
+class Esame--><rect fill="#FEFECE" filter="url(#favyhvxqrnmbv)" height="221.7305" id="Esame" style="stroke: #A80036; stroke-width: 4.5;" width="273" x="142.5" y="129"/><ellipse cx="215.85" cy="177" fill="#ADD1B2" rx="33" ry="33" style="stroke: #A80036; stroke-width: 3.0;"/><path d="M224.7694,193.9292 Q223.0263,194.8257 221.1088,195.2739 Q219.1913,195.7222 217.0746,195.7222 Q209.5541,195.7222 205.5946,190.7666 Q201.6352,185.811 201.6352,176.4478 Q201.6352,167.0596 205.5946,162.104 Q209.5541,157.1484 217.0746,157.1484 Q219.1913,157.1484 221.1337,157.5967 Q223.0761,158.0449 224.7694,158.9414 L224.7694,167.1094 Q222.8769,165.3662 221.0963,164.5569 Q219.3158,163.7476 217.4232,163.7476 Q213.3891,163.7476 211.3346,166.9475 Q209.2802,170.1475 209.2802,176.4478 Q209.2802,182.7231 211.3346,185.9231 Q213.3891,189.123 217.4232,189.123 Q219.3158,189.123 221.0963,188.3137 Q222.8769,187.5044 224.7694,185.7612 Z "/><text fill="#000000" font-family="sans-serif" font-size="36" lengthAdjust="spacingAndGlyphs" textLength="114" x="264.15" y="190.6055">Esame</text><line style="stroke: #A80036; stroke-width: 4.5;" x1="145.5" x2="412.5" y1="225" y2="225"/><ellipse cx="175.5" cy="258" fill="none" rx="9" ry="9" style="stroke: #038048; stroke-width: 3.0;"/><text fill="#000000" font-family="sans-serif" font-size="33" lengthAdjust="spacingAndGlyphs" textLength="195" x="202.5" y="268.9043">String nome</text><ellipse cx="175.5" cy="296.8652" fill="none" rx="9" ry="9" style="stroke: #038048; stroke-width: 3.0;"/><text fill="#000000" font-family="sans-serif" font-size="33" lengthAdjust="spacingAndGlyphs" textLength="123" x="202.5" y="307.7695">int voto</text><line style="stroke: #A80036; stroke-width: 4.5;" x1="145.5" x2="412.5" y1="326.7305" y2="326.7305"/><!--MD5=[9bc9d030fd4ca6fd6d77bd56aeffcc24]
+link Esame to Studente--><path d="M279,351.8475 C279,394.2903 279,443.6538 279,490.3302 " fill="none" id="Esame-&gt;Studente" style="stroke: #A80036; stroke-width: 3.0;"/><polygon fill="#A80036" points="279,530.4159,291,512.4159,279,494.4159,267,512.4159,279,530.4159" style="stroke: #A80036; stroke-width: 3.0;"/><!--MD5=[2208ec4154d4ff5963a5cb2b04c7781a]
+@startuml
+scale 3
+package "it.adm.calcolomedia" {
+    class Studente {
+        + String nome
+        + String Cognome
+        + Esame esami[ ]
+    }
+    class Esame {
+        + String nome
+        + int voto
+    }
+    Esame - -* Studente
+}
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 12:02:15 CEST 2019)
+(MIT source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_131-b11
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: it
+Country: IT
+--></g></svg></p><ul>
+<li><strong>N.B.:</strong> la presente non &#xE8; necessariamente la soluzione finale</li>
+</ul>
+</section><section lineno="140" class="slide " data-line="140" data-h="7" data-v="0">
+<h2 class="mume-header" id="un-possibile-schema-di-funzionamento">Un possibile schema di funzionamento</h2>
+
+<ul>
+<li>Possiamo immaginare le nostre classi connesse ad altri pezzi del nostro sistema informativo</li>
+</ul>
+<p style="zoom:1.5"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: g Pages: 1 -->
+<svg width="172pt" height="472pt" viewBox="0.00 0.00 171.57 472.37" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 468.375)">
+<title>g</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-468.375 167.571,-468.375 167.571,4 -4,4"/>
+<!-- studente -->
+<g id="node1" class="node">
+<title>studente</title>
+<polygon fill="none" stroke="#333366" stroke-width="2" points="11.5132,-.5 11.5132,-132.5 120.4868,-132.5 120.4868,-.5 11.5132,-.5"/>
+<text text-anchor="middle" x="66" y="-112.3" font-family="Roboto" font-size="18.00" fill="#000000">STUDENTE</text>
+<polyline fill="none" stroke="#333366" stroke-width="2" points="11.5132,-102.9 120.4868,-102.9 "/>
+<text text-anchor="start" x="19.5132" y="-82.7" font-family="Roboto" font-size="18.00" fill="#000000">+ Nome</text>
+<text text-anchor="start" x="19.5132" y="-61.1" font-family="Roboto" font-size="18.00" fill="#000000">+ Cognome</text>
+<text text-anchor="start" x="19.5132" y="-39.5" font-family="Roboto" font-size="18.00" fill="#000000">+ Esami[ ]</text>
+<polyline fill="none" stroke="#333366" stroke-width="2" points="11.5132,-30.1 120.4868,-30.1 "/>
+<text text-anchor="middle" x="66" y="-9.9" font-family="Roboto" font-size="18.00" fill="#000000"> </text>
+</g>
+<!-- esame -->
+<g id="node2" class="node">
+<title>esame</title>
+<polygon fill="none" stroke="#333366" stroke-width="2" points="69.5035,-187.5 69.5035,-297.9 146.4965,-297.9 146.4965,-187.5 69.5035,-187.5"/>
+<text text-anchor="middle" x="108" y="-277.7" font-family="Roboto" font-size="18.00" fill="#000000">ESAME</text>
+<polyline fill="none" stroke="#333366" stroke-width="2" points="69.5035,-268.3 146.4965,-268.3 "/>
+<text text-anchor="start" x="77.5035" y="-248.1" font-family="Roboto" font-size="18.00" fill="#000000">+ Nome</text>
+<text text-anchor="start" x="77.5035" y="-226.5" font-family="Roboto" font-size="18.00" fill="#000000">+ Voto</text>
+<polyline fill="none" stroke="#333366" stroke-width="2" points="69.5035,-217.1 146.4965,-217.1 "/>
+<text text-anchor="middle" x="108" y="-196.9" font-family="Roboto" font-size="18.00" fill="#000000"> </text>
+</g>
+<!-- esame&#45;&gt;studente -->
+<g id="edge3" class="edge">
+<title>esame-&gt;studente</title>
+<path fill="none" stroke="#333366" stroke-width="2" d="M94.8262,-187.4327C92.4663,-177.5325 89.9526,-166.9869 87.4306,-156.4065"/>
+<polygon fill="#333366" stroke="#333366" stroke-width="2" points="87.3433,-156.0399 76.7789,-146.2219 81.7784,-132.694 92.3428,-142.512 87.3433,-156.0399"/>
+<text text-anchor="middle" x="126.2855" y="-155.5" font-family="Roboto" font-size="15.00" fill="#000000">ha sostenuto</text>
+</g>
+<!-- db -->
+<g id="node3" class="node">
+<title>db</title>
+<path fill="none" stroke="#aaaaee" stroke-width="2" stroke-dasharray="5,2" d="M108,-452.6398C108,-459.1082 83.7963,-464.3625 54,-464.3625 24.2037,-464.3625 0,-459.1082 0,-452.6398 0,-452.6398 0,-347.1352 0,-347.1352 0,-340.6668 24.2037,-335.4125 54,-335.4125 83.7963,-335.4125 108,-340.6668 108,-347.1352 108,-347.1352 108,-452.6398 108,-452.6398"/>
+<path fill="none" stroke="#aaaaee" stroke-width="2" stroke-dasharray="5,2" d="M108,-452.6398C108,-446.1714 83.7963,-440.917 54,-440.917 24.2037,-440.917 0,-446.1714 0,-452.6398"/>
+<text text-anchor="start" x="18.7713" y="-405.5875" font-family="Roboto" font-size="18.00" fill="#aaaaee">Data base</text>
+<text text-anchor="start" x="18.7713" y="-383.9875" font-family="Roboto" font-size="18.00" fill="#aaaaee">file</text>
+<text text-anchor="start" x="18.7713" y="-362.3875" font-family="Roboto" font-size="18.00" fill="#aaaaee">altro</text>
+</g>
+<!-- db&#45;&gt;studente -->
+<g id="edge1" class="edge">
+<title>db-&gt;studente</title>
+<path fill="none" stroke="#aaaaee" stroke-width="2" stroke-dasharray="5,2" d="M55.9846,-335.1324C57.3133,-292.9437 59.1517,-236.7032 61,-187 61.4085,-176.0151 61.8597,-164.4678 62.319,-153.0508"/>
+<polygon fill="#aaaaee" stroke="#aaaaee" stroke-width="2" points="69.3244,-153.0598 63.1468,-132.7906 55.336,-152.4882 69.3244,-153.0598"/>
+</g>
+<!-- db&#45;&gt;esame -->
+<g id="edge2" class="edge">
+<title>db-&gt;esame</title>
+<path fill="none" stroke="#aaaaee" stroke-width="2" stroke-dasharray="5,2" d="M76.2756,-335.0458C78.2694,-329.2423 80.2986,-323.3355 82.3179,-317.4574"/>
+<polygon fill="#aaaaee" stroke="#aaaaee" stroke-width="2" points="88.9983,-319.5566 88.8761,-298.3673 75.7578,-315.0079 88.9983,-319.5566"/>
+</g>
+</g>
+</svg>
+</p><ul>
+<li><strong>N.B. la parte tratteggiata non &#xE8; parte dello standard UML</strong></li>
+</ul>
+</section><section lineno="159" class="slide " data-line="159" data-h="8" data-v="0">
+<h2 class="mume-header" id="scrittura-delle-classi">Scrittura delle classi</h2>
+
+<ul>
+<li>Ciascuna delle classi progettate andr&#xE0; scritta in un file con lo stesso nome della classe ed estensione <code>.java</code>:</li>
+</ul>
+<pre data-role="codeBlock" data-info class="language-"><code>Studente.java
+Esame.java
+</code></pre></section><section lineno="169" class="slide " data-line="169" data-h="9" data-v="0">
+<h2 class="mume-header" id="studentejava">Studente.java</h2>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>adm<span class="token punctuation">.</span>calcolomedia</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Studente</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> nome<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> cognome<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token class-name">Esame</span> esami<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre></section><section lineno="182" class="slide " data-line="182" data-h="10" data-v="0">
+<h2 class="mume-header" id="esamejava">Esame.java</h2>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>adm<span class="token punctuation">.</span>calcolomedia</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Esame</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> nome<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> voto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre></section><section lineno="194" class="slide " data-line="194" data-h="11" data-v="0">
+<h2 class="mume-header" id="getters-e-setters">Getters e Setters</h2>
+
+<ul>
+<li>per quanto corrette, le suddette classi non seguono le <em>best practices</em> e non sfruttano i vantaggi che alcuni framework garantiscono a chi le segue</li>
+<li>a meno di alcune eccezione lo stato di una classe dovrebbe essere definito con visibilit&#xE0; <code>private</code></li>
+<li>per consentire l&apos;accesso in lettura o scrittura dello stato di una classe si utilizzano i metodi di tipo <em>getter</em> (per la lettura) o <em>setter</em> (per la scrittura): il nome di questi metodi &#xE8; che il verbo <em>to get</em> indica <em>prendere</em> e il verbo <em>to set</em> indica <em>impostare</em></li>
+<li>per ciascun attributo privato creeremo quindi dei semplici getter e setter (eclipse offre un automatismo per questo)</li>
+</ul>
+</section><section lineno="202" class="slide " data-line="202" data-h="12" data-v="0">
+<h2 class="mume-header" id="studentejava-1">Studente.java</h2>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>adm<span class="token punctuation">.</span>calcolomedia</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Studente</span> <span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token class-name">String</span> nome<span class="token punctuation">;</span>
+	<span class="token keyword">private</span> <span class="token class-name">String</span> cognome<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token class-name">Esame</span> esami<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getNome</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> nome<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setNome</span><span class="token punctuation">(</span><span class="token class-name">String</span> nome<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>nome <span class="token operator">=</span> nome<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getCognome</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> cognome<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setCognome</span><span class="token punctuation">(</span><span class="token class-name">String</span> cognome<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>cognome <span class="token operator">=</span> cognome<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><ul>
+<li>Per ora non scriviamo il getter/setter dell&apos;attributo <em>esami</em></li>
+</ul>
+</section><section lineno="232" class="slide " data-line="232" data-h="13" data-v="0">
+<h2 class="mume-header" id="la-prima-parte-del-programma">La prima parte del programma</h2>
+
+<pre data-role="codeBlock" data-info="java {.line-numbers}" class="language-java line-numbers"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>adm<span class="token punctuation">.</span>calcolomedia</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestEsame</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Studente</span> studente <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Studente</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		studente<span class="token punctuation">.</span><span class="token function">setNome</span><span class="token punctuation">(</span><span class="token string">&quot;Mario&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		studente<span class="token punctuation">.</span><span class="token function">setCognome</span><span class="token punctuation">(</span><span class="token string">&quot;Rossi&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre><ul>
+<li>alla linea 5 creiamo una <em>istanza</em> della classe Studente invocando un metodo preceduto da <strong>new</strong></li>
+</ul>
+<div class="question"><div class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></div><div class="text"><p> Dove &#xE8; definito quel metodo? </p></div></div>
+<ul>
+<li>nelle linee successive invece invochiamo i setter che alterano lo stato dell&apos;istanza</li>
+</ul>
+</section><section lineno="251" class="slide " data-line="251" data-h="14" data-v="0">
+<h2 class="mume-header" id="il-costruttore">Il costruttore</h2>
+
+<ul>
+<li>La linea 5 del precedente listato crea una istanza della classe Studente invocando il costruttore</li>
+<li>Tutte le classi Java, anche quando non specificato, funzionano seguendo la definizione di una classe speciale chiamata Object</li>
+<li>Per questo motivo si dice che la classe Studente (cos&#xEC; come la classe Esame) <strong>eredita</strong> dalla classe Object</li>
+<li>i tipi primitivi (int, float, double, ecc) non sono classi e quindi non ereditano alcun funzionamento da nessuno</li>
+<li>i wrapper dei tipi primitivi (Integer, Float, Double) invece sono classi</li>
+<li>quando nella classe manca il costruttore, viene invocato quello della classe madre (quindi quello di Object); stesso vale per gli altri metodi</li>
+</ul>
+</section><section lineno="261" class="slide " data-line="261" data-h="15" data-v="0">
+<h2 class="mume-header" id="il-costruttore-1">Il costruttore</h2>
+
+<ul>
+<li>Il costruttore pu&#xF2; essere scritto quando si vuole inizializzare l&apos;istanza in modo particolare o in base a dei parametri</li>
+</ul>
+<pre data-role="codeBlock" data-info="java {.line-numbers}" class="language-java line-numbers"><span class="token keyword">public</span> <span class="token class-name">Studente</span><span class="token punctuation">(</span><span class="token class-name">String</span> nome<span class="token punctuation">,</span> <span class="token class-name">String</span> cognome<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>nome <span class="token operator">=</span> nome<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>cognome <span class="token operator">=</span> cognome<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>esami <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Esame</span><span class="token punctuation">[</span><span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></pre><ul>
+<li>Alla linea 4 vediamo come si inizializza un array di istanze.</li>
+<li>Alcuni framework potrebbero richiedere un costruttore senza parametri anche vuoto</li>
+</ul>
+<div class="question">
+    <div class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+    <div class="text">
+        Cosa succede se nel main() aggiungiamo:
+        System.out.println(studente.esami[0].getVoto());
+    </div>
+</div>
+</section><section lineno="284" class="slide " data-line="284" data-h="16" data-v="0">
+<h2 class="mume-header" id="aggiungiamo-un-esame">Aggiungiamo un esame</h2>
+
+<pre data-role="codeBlock" data-info="java" class="language-java"><span class="token keyword">package</span> <span class="token namespace">it<span class="token punctuation">.</span>adm<span class="token punctuation">.</span>calcolomedia</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestEsame2</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">Studente</span> studente <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Studente</span><span class="token punctuation">(</span><span class="token string">&quot;Mario&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Rossi&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		studente<span class="token punctuation">.</span>esami <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Esame</span><span class="token punctuation">[</span><span class="token number">28</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+		<span class="token class-name">Esame</span> esame <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Esame</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		esame<span class="token punctuation">.</span><span class="token function">setNome</span><span class="token punctuation">(</span><span class="token string">&quot;Analisi Matematica I&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		esame<span class="token punctuation">.</span><span class="token function">setVoto</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		studente<span class="token punctuation">.</span>esami<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> esame<span class="token punctuation">;</span>
+		
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>studente<span class="token punctuation">.</span>esami<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getVoto</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre></section><section lineno="306" class="slide " data-line="306" data-h="17" data-v="0">
+<h2 class="mume-header" id="miglioramento-del-modello">Miglioramento del modello</h2>
+
+<ul>
+<li>Cosa succede se pi&#xF9; studenti fanno lo stesso esame?</li>
+<li>Cosa occorre rimodellare per ottimizzare la gestione delle informazioni?</li>
+</ul>
+</section><section lineno="313" class="slide " data-line="313" data-h="18" data-v="0">
+<h2 class="mume-header" id="class-diagram">Class Diagram</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="726px" preserveAspectRatio="none" style="width:516px;height:726px;" version="1.1" viewBox="0 0 516 726" width="516px" zoomAndPan="magnify"><defs><filter height="300%" id="frezetkciplhb" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="4.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="8.0" dy="8.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[82a3fe71a7b6711430cf049b87156659]
+cluster it.adm.calcolomedia--><polygon fill="#FFFFFF" filter="url(#frezetkciplhb)" points="28,32,324,32,338,76.9766,472,76.9766,472,702,28,702,28,32" style="stroke: #000000; stroke-width: 3.0;"/><line style="stroke: #000000; stroke-width: 3.0;" x1="28" x2="338" y1="76.9766" y2="76.9766"/><text fill="#000000" font-family="sans-serif" font-size="28" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="284" x="36" y="63.0703">it.adm.calcolomedia</text><!--MD5=[81b876832e028002ede37ed04d01654b]
+class Studente--><rect fill="#FEFECE" filter="url(#frezetkciplhb)" height="199.6406" id="Studente" style="stroke: #A80036; stroke-width: 3.0;" width="412" x="44" y="486"/><ellipse cx="191.5" cy="518" fill="#ADD1B2" rx="22" ry="22" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M197.4463,529.2861 Q196.2842,529.8838 195.0059,530.1826 Q193.7275,530.4814 192.3164,530.4814 Q187.3027,530.4814 184.6631,527.1777 Q182.0234,523.874 182.0234,517.6318 Q182.0234,511.373 184.6631,508.0693 Q187.3027,504.7656 192.3164,504.7656 Q193.7275,504.7656 195.0225,505.0645 Q196.3174,505.3633 197.4463,505.9609 L197.4463,511.4063 Q196.1846,510.2441 194.9976,509.7046 Q193.8105,509.165 192.5488,509.165 Q189.8594,509.165 188.4897,511.2983 Q187.1201,513.4316 187.1201,517.6318 Q187.1201,521.8154 188.4897,523.9487 Q189.8594,526.082 192.5488,526.082 Q193.8105,526.082 194.9976,525.5425 Q196.1846,525.0029 197.4463,523.8408 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="100" x="232.5" y="527.0703">Studente</text><line style="stroke: #A80036; stroke-width: 3.0;" x1="46" x2="454" y1="550" y2="550"/><ellipse cx="66" cy="572" fill="none" rx="6" ry="6" style="stroke: #038048; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="130" x="84" y="579.2695">String nome</text><ellipse cx="66" cy="597.9102" fill="none" rx="6" ry="6" style="stroke: #038048; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="174" x="84" y="605.1797">String Cognome</text><ellipse cx="66" cy="623.8203" fill="none" rx="6" ry="6" style="stroke: #038048; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="304" x="84" y="631.0898">Map&lt;Esame, Integer&gt; esami</text><line style="stroke: #A80036; stroke-width: 3.0;" x1="46" x2="454" y1="643.7305" y2="643.7305"/><ellipse cx="66" cy="665.7305" fill="#84BE84" rx="6" ry="6" style="stroke: #038048; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="360" x="84" y="673">addEsame(Esame esame, int voto)</text><!--MD5=[b7bfee4cf697f663d0567e067620b3b9]
+class Esame--><rect fill="#FEFECE" filter="url(#frezetkciplhb)" height="121.9102" id="Esame" style="stroke: #A80036; stroke-width: 3.0;" width="182" x="159" y="86"/><ellipse cx="207.9" cy="118" fill="#ADD1B2" rx="22" ry="22" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M213.8463,129.2861 Q212.6842,129.8838 211.4059,130.1826 Q210.1275,130.4814 208.7164,130.4814 Q203.7027,130.4814 201.0631,127.1777 Q198.4234,123.874 198.4234,117.6318 Q198.4234,111.373 201.0631,108.0693 Q203.7027,104.7656 208.7164,104.7656 Q210.1275,104.7656 211.4225,105.0645 Q212.7174,105.3633 213.8463,105.9609 L213.8463,111.4063 Q212.5846,110.2441 211.3976,109.7046 Q210.2105,109.165 208.9488,109.165 Q206.2594,109.165 204.8897,111.2983 Q203.5201,113.4316 203.5201,117.6318 Q203.5201,121.8154 204.8897,123.9487 Q206.2594,126.082 208.9488,126.082 Q210.2105,126.082 211.3976,125.5425 Q212.5846,125.0029 213.8463,123.8408 Z "/><text fill="#000000" font-family="sans-serif" font-size="24" lengthAdjust="spacingAndGlyphs" textLength="76" x="240.1" y="127.0703">Esame</text><line style="stroke: #A80036; stroke-width: 3.0;" x1="161" x2="339" y1="150" y2="150"/><ellipse cx="181" cy="172" fill="none" rx="6" ry="6" style="stroke: #038048; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="22" lengthAdjust="spacingAndGlyphs" textLength="130" x="199" y="179.2695">String nome</text><line style="stroke: #A80036; stroke-width: 3.0;" x1="161" x2="339" y1="191.9102" y2="191.9102"/><!--MD5=[9bc9d030fd4ca6fd6d77bd56aeffcc24]
+link Esame to Studente--><path d="M250,208.041 C250,272.7402 250,376.7688 250,459.3238 " fill="none" id="Esame-&gt;Studente" style="stroke: #A80036; stroke-width: 2.0;"/><polygon fill="#FFFFFF" points="250,485.852,258,473.852,250,461.852,242,473.852,250,485.852" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="26" lengthAdjust="spacingAndGlyphs" textLength="164" x="252" y="357.1367">ha sostenuto</text><!--MD5=[5d3e54e225eddf8e0ecdc0b745758652]
+@startuml
+scale 2
+package "it.adm.calcolomedia" {
+    class Studente {
+        + String nome
+        + String Cognome
+        + Map<Esame, Integer> esami
+        + addEsame(Esame esame, int voto)
+    }
+    class Esame {
+        + String nome
+    }
+    Esame - -o Studente : "ha sostenuto"
+}
+@enduml
+
+PlantUML version 1.2019.11(Sun Sep 22 12:02:15 CEST 2019)
+(MIT source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_131-b11
+Operating System: Mac OS X
+Default Encoding: UTF-8
+Language: it
+Country: IT
+--></g></svg></p></section>
+      </div>
+    </div>
+    
+      </div>
+      
+      
+    
+    
+      <script>
+        Reveal.initialize({"margin":0.1,"width":1200,"height":1200,"theme":"simple.css","dependencies":[]})
+      </script>
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
