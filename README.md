@@ -54,8 +54,7 @@ body, .reveal {
 <!-- slide -->
 
 # Corso Java Base
-# Ing. Sandro Zacchino
-email sandro.zacchino@gmail.com
+
 github https://github.com/szacchino/Lezione200219
 
 <!-- slide  -->
