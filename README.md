@@ -6,12 +6,14 @@ presentation:
 ---
 <style src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></style>
 <style>
+
+
 .question {
     /* border: 2px solid #999999 !important; */
     border-radius: 30px;
     background-color: #e9e9ff;
     display: flex;
-    box-shadow: 0px 10px 10px grey;
+    /*box-shadow: 0px 10px 10px grey;*/
     margin: 30px !important;
 }
 .question .icon {
@@ -31,29 +33,46 @@ presentation:
     color: #57578c;
     flex-direction: column;
 }
+
+body, .reveal {
+    font-family: "Nunito";
+}
+
+.reveal h1 {
+    font-family: "Nunito";
+    font-size: 70px;
+    width: 100%;
+    border-bottom: 5px solid #ddd;
+    color: #555
+}
+
+.reveal pre {
+    box-shadow: none;
+    border:2px solid #555;
+}
 </style>
 <!-- slide -->
 
 # Corso Java Base
-## Ing. Sandro Zacchino
+# Ing. Sandro Zacchino
 email sandro.zacchino@gmail.com
 github https://github.com/szacchino/Lezione200219
 
 <!-- slide  -->
-## Problema
+# Problema
 - Progettare le classi java necessarie ad elaborare la media degli esami sostenuti da un generico studente
 - In questo problema riusciamo ad identificare due chiare entità: lo Studente e l'Esame
 - In uno scenario reale i dati relativi ad uno studente potrebbero provenire da un database, da un file o da altre fonti
 
 <!-- slide -->
 
-## Progettazione
+# Progettazione
 - Il nostro compito è quello di mappare le entità che hanno una definizione chiara in classi
 - Le nostre classi saranno contenute in un package
 
 <!-- slide -->
 
-## Definizione di package
+# Definizione di package
 - Una classe ha un nome (solitamente con iniziale maiuscola) ed è definita all'interno di **package**.
 - Un package è un contenitore con un nome che serve a distinguere classi che hanno lo stesso nome. Ad esempio
 ```java
@@ -68,7 +87,7 @@ sono due package che potrebbero contenere una classe Studente ma le due classi p
 
 <!-- slide -->
 
-## Definizione di classe
+# Definizione di classe
 - Una classe è la definizione di un tipo di dato complesso, dotato di uno stato interno e di metodi in grado di modificarlo
 - lo **stato** è definito da attributi i quali possono essere di tipo primitivo (int, double, float, ecc) oppure di tipo complesso (altre classi)
 - lo stato può comprendere tutte le classi *visibili* o sulle quali si ha accesso
@@ -107,7 +126,7 @@ sono due package che potrebbero contenere una classe Studente ma le due classi p
 
 <!-- slide -->
 
-## Tipi di dati
+# Tipi di dati
 
 - Java fornisce alcuni tipi di dati: alcuni di questi si identificano con *wrapper dei tipi primitivi*
 - Questi wrapper sono le classi corrispondenti ai tipi primitivi
@@ -117,7 +136,7 @@ sono due package che potrebbero contenere una classe Studente ma le due classi p
 
 <!-- slide -->
 
-## Diagramma delle classi
+# Diagramma delle classi
 - Un primo progetto potrebbe essere rappresentato dal seguente diagramma UML (class diagram)
 ```plantuml
 @startuml
@@ -140,7 +159,7 @@ package "it.adm.calcolomedia" {
 
 <!-- slide -->
 
-## Un possibile schema di funzionamento
+# Un possibile schema di funzionamento
 - Possiamo immaginare le nostre classi connesse ad altri pezzi del nostro sistema informativo
 ```dot {style="zoom:1.5"}
 digraph g {
@@ -159,7 +178,7 @@ digraph g {
 
 <!-- slide -->
 
-## Scrittura delle classi
+# Scrittura delle classi
 
 - Ciascuna delle classi progettate andrà scritta in un file con lo stesso nome della classe ed estensione `.java`:
 ```
@@ -169,7 +188,7 @@ Esame.java
 
 <!-- slide -->
 
-## Studente.java
+# Studente.java
 ```java
 package it.adm.calcolomedia;
 
@@ -182,7 +201,7 @@ public class Studente {
 
 <!-- slide -->
 
-## Esame.java
+# Esame.java
 ```java
 package it.adm.calcolomedia;
 
@@ -194,7 +213,7 @@ public class Esame {
 
 <!-- slide -->
 
-## Getters e Setters
+# Getters e Setters
 - per quanto corrette, le suddette classi non seguono le *best practices* e non sfruttano i vantaggi che alcuni framework garantiscono a chi le segue 
 - a meno di alcune eccezione lo stato di una classe dovrebbe essere definito con visibilità `private` 
 - per consentire l'accesso in lettura o scrittura dello stato di una classe si utilizzano i metodi di tipo *getter* (per la lettura) o *setter* (per la scrittura): il nome di questi metodi è che il verbo *to get* indica *prendere* e il verbo *to set* indica *impostare*
@@ -202,7 +221,7 @@ public class Esame {
 
 <!-- slide -->
 
-## Studente.java
+# Studente.java
 ```java
 package it.adm.calcolomedia;
 
@@ -232,7 +251,7 @@ public class Studente {
 
 <!-- slide -->
 
-## La prima parte del programma
+# La prima parte del programma
 ```java {.line-numbers}
 package it.adm.calcolomedia;
 
@@ -251,7 +270,7 @@ public class TestEsame {
 
 <!-- slide -->
 
-## Il costruttore
+# Il costruttore
 - La linea 5 del precedente listato crea una istanza della classe Studente invocando il costruttore
 - Tutte le classi Java, anche quando non specificato, funzionano seguendo la definizione di una classe speciale chiamata Object
 - Per questo motivo si dice che la classe Studente (così come la classe Esame) **eredita** dalla classe Object
@@ -261,7 +280,7 @@ public class TestEsame {
 
 <!-- slide -->
 
-## Il costruttore 
+# Il costruttore 
 
 - Il costruttore può essere scritto quando si vuole inizializzare l'istanza in modo particolare o in base a dei parametri
 ```java {.line-numbers}
@@ -284,7 +303,7 @@ public Studente(String nome, String cognome) {
 
 <!-- slide -->
 
-## Aggiungiamo un esame
+# Aggiungiamo un esame
 
 ```java
 package it.adm.calcolomedia;
@@ -306,14 +325,14 @@ public class TestEsame2 {
 
 <!-- slide -->
 
-## Miglioramento del modello
+# Miglioramento del modello
 
 - Cosa succede se più studenti fanno lo stesso esame?
 - Cosa occorre rimodellare per ottimizzare la gestione delle informazioni?
 
 <!-- slide -->
 
-## Class Diagram
+# Class Diagram
 
 ```plantuml
 @startuml
@@ -333,14 +352,15 @@ package "it.adm.calcolomedia" {
 @enduml
 ```
 
+
 <!-- slide -->
 
-## Ereditarietà
+# Ereditarietà
 ![swinghierarchy](/assets/swinghierarchy_mve7lr1w1.jpg)
 
 <!-- slide -->
 
-## Ereditarietà
+# Ereditarietà
 - Consente di definire tipi e sottotipi che godono di specifiche proprietà:
 ```puml
 @startuml
@@ -359,7 +379,7 @@ Genitore<|-Figlio
 - **Motivazione** L'ereditarietà consente di specializzare/estendere il funzionamento di una classe senza modificare il codice del genitore. Questa caratteristica rafforza la **modularità** e la **manutenibilità** del codice.
 
 <!-- slide  -->
-## Esempio di ereditarietà
+# Esempio di ereditarietà
 <div style="float: left">
 
 ```puml
@@ -400,7 +420,7 @@ public class Figlio extends Genitore {
 
 <!-- slide -->
 
-## Tipi di ereditarietà
+# Tipi di ereditarietà
 
 - **Interfacce**: rappresentano delle classi che non possono essere instanziate ma presentano un modo comune di presentarsi: 
     - gli attributi devono essere `public static final`
@@ -422,7 +442,7 @@ public class Figlio extends Genitore {}
 
 <!-- slide -->
 
-## Classe astratta
+# Classe astratta
 
 - Si tratta di classi che implementano parzialmente alcune funzionalità, lasciandone altre alle classi figlie.
 - Una classe astratta *non può essere istanziata*
@@ -431,7 +451,7 @@ public class Figlio extends Genitore {}
 
 <!-- slide -->
 
-## Esempio (Factory Design Pattern)
+# Esempio (Factory Design Pattern)
 ```puml
 scale 2
 skinparam monochrome true
@@ -465,7 +485,7 @@ PhoneConcreteFactory..>Phone
 
 <!-- slide -->
 
-## Esempio (Factory Design Pattern)
+# Esempio (Factory Design Pattern)
 
 ```java
 public interface IProduct
@@ -491,7 +511,7 @@ public class Phone implements IProduct
 
 <!-- slide -->
 
-## Esempio (Factory Design Pattern)
+# Esempio (Factory Design Pattern)
 
 ```java
 
@@ -516,7 +536,7 @@ public class PhoneConcreteFactory extends ProductAbstractFactory
 
 <!-- slide -->
 
-## Collections
+# Collections
 - È una libreria che contiene strutture dati di uso comune
 - Alcuni esempi di interfacce:
     - List
@@ -529,7 +549,7 @@ public class PhoneConcreteFactory extends ProductAbstractFactory
 
 <!-- slide -->
 
-## Collections
+# Collections
 - Le collections possono essere tipizzate oppure no:
     - Una collection non tipizzata può contenere oggetti di tipo diverso
     - Una collection tipizzata può contenere solo oggetti di un tipo specifico
@@ -537,7 +557,7 @@ public class PhoneConcreteFactory extends ProductAbstractFactory
 
 <!-- slide -->
 
-## Esempio
+# Esempio
 ```java
 List lista = new ArrayList();
 lista.add("Ciao");
@@ -548,7 +568,7 @@ System.out.println(lista.toString());
 
 <!-- slide -->
 
-## Esempio
+# Esempio
 ```java
 List<String> lista = new ArrayList<String>();
 
@@ -563,7 +583,7 @@ System.out.println(lista.toString());
 
 <!-- slide -->
 
-## Literals
+# Literals
 
 - Per inizializzare un array possiamo usare il literal:
 
