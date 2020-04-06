@@ -1,1 +1,46 @@
-<mxfile host="app.diagrams.net" modified="2020-04-06T18:20:28.571Z" agent="5.0 (Macintosh)" etag="oqeY0r-Z-iOEjuy0NDUV" version="12.9.8" type="github"><diagram id="wGhNte-QYM9g-if-mQeH" name="Page-1">7ZjbjpswEIafhstdAQ6EXG6yYdtKW1VNpV47eAJWDUbGOfXpayfmTNQmm2ZbKShS8O9hxvb/YRAWmqW7F4Hz5JUTYJZrk52Fni3XdRAaqT+t7I+K7xkhFpSYoFpY0J9gRNuoa0qgaAVKzpmkeVuMeJZBJFsaFoJv22ErztpVcxxDT1hEmPXV75TI5KgGnl3rH4DGSVnZsU1PistgIxQJJnzbkmAnQ55JM8TP64xKbnnzREo9uyfLDdVvpSMeY85jBjinxWPEUyVHhQoJVzilTC+tuVilRXMLzQTn8niW7mbAtCflch9rhyd6q/kKyOSfXFB8feWB/bD6JPcQL1/8QsbiwWTZYLY262jWQO7LhYWMPGl/VCtiuChoZKFpIlOmBEed6mmHndmhafhtn+sEsYkwwKgxmrYpoDMUUvAflWuujqCMzTjj4jAEBIejimz0TA6HydnQj4fSjX+kB0+9bE5lhro5gKcgxV6FbGuKSoiSBkClJoBhSTft9NiQElfpqgpfOFWFXdvceIFJY+660chuZyj4WkRgLmq628nj279JJLGIQfYSqZPGrGvpAM8ZILl3kN4XJMftABBcSFI3UdW+EUno7SS1OUB9DlYr8KNoiAMynixt+yo0/rck+R0A/AtJ8rpI2rclaXSFPanNDfEgIKMhbgJ3iXx/mL07SacAuJSkHpJ/mSSvR9LHNAeh14b3mJLqbXFoPyodzHgGHbSMhBmNM42isg+UPt2AkFS94z6ZjpQSostMtwmVsMhxpGtu1Ru90gRfZwT0NG6xf+mhwe5c7k6BUQLX4HIywGX3UdREsOX5uQb7PYOfaZRQfLf4UotH/5rF457FM5X5bu351nr2uLOte+9rbTBgbYHv1r7dWqf8LHR9a1Wz/vhxfFDXX6bQ/Bc=</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-04-06T18:27:32.250Z" agent="5.0 (Macintosh)" etag="cp4yO4TDOs4VtbLvA1Ai" version="12.9.8" type="github">
+  <diagram id="wGhNte-QYM9g-if-mQeH" name="Page-1">
+    <mxGraphModel dx="1334" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Nunito^https://fonts.googleapis.com/css?family=Nunito">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sRMo80-fJtyegbG6stgr-1" value="" style="endArrow=classic;html=1;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#eeeeee;strokeColor=#999999;fontColor=#333333;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="37" y="240" as="sourcePoint" />
+            <mxPoint x="557" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-2" value="" style="endArrow=classic;html=1;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;strokeWidth=2;fillColor=#eeeeee;strokeColor=#999999;fontColor=#333333;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="280" as="sourcePoint" />
+            <mxPoint x="80" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-3" value="" style="endArrow=classic;html=1;strokeWidth=3;fillColor=#ffe6cc;strokeColor=#d79b00;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="80" as="sourcePoint" />
+            <mxPoint x="480" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-4" value="" style="endArrow=classic;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="120" y="200" as="sourcePoint" />
+            <mxPoint x="480" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-5" value="Imperativo" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="120" y="250" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-6" value="Dichiarativo" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="420" y="250" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-7" value="Come" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="467" y="200" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sRMo80-fJtyegbG6stgr-8" value="Cosa" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Nunito;FType=g;fontSize=20;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="467" y="60" width="90" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
